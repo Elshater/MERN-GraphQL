@@ -14,9 +14,9 @@ const app = express();
 
 
 app.use('/graphql', graphqlHTTP({
-    schema: schema,
+    schema,
     rootValue: global,
-    graphiql: true,
+    graphiql: process.env.Node_ENV === "development",
   }));
 
 app.listen(port, console.log(`Server listening on ${port}`))
